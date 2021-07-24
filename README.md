@@ -1,2 +1,3 @@
-# image-uploader
- An image uploader compatible with ShareX and other services.
+# Image Uploader 🖼️
+
+An image uploader compatible with ShareX and other services.
