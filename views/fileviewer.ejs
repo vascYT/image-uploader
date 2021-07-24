@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="<%= fileName %>" />
+    <meta
+      property="og:description"
+      content="📅 <%= fileDate %> | 💾 <%= fileMb %> MB"
+    />
+    <meta property="og:image" content="/source/<%= fileName %>" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <title><%= fileName %></title>
+  </head>
+  <body
+    style="background-color: #0e0e0e; font-family: 'Roboto', sans-serif"
+    class="text-white"
+  >
+    <div class="flex h-screen">
+      <div class="m-auto" style="width: 75vh">
+        <div class="bg-white rounded-lg p-10 pt-5 pb-5 bg-opacity-30">
+          <h1 class="mb-5 text-3xl font-bold"><%= fileName %></h1>
+          <img
+            src="/source/<%= fileName %>"
+            class="cursor-pointer w-full"
+            onclick="window.open(this.src)"
+          />
+          <div class="grid grid-flow-col mt-5">
+            <div class="flex space-x-1">
+              <p>
+                <span class="float-left h-6 w-6 mr-2">📅</span> <%= fileDate %>
+              </p>
+            </div>
+            <div class="flex justify-end space-x-1">
+              <p>
+                <span class="float-left h-6 w-6 mr-2">💾</span> <%= fileMb %> MB
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      twemoji.parse(document.body);
+    </script>
+  </body>
+</html>
