@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd /root/docker/image-uploader
+            cd /root/docker-compose/image-uploader
             docker-compose down
             docker pull ghcr.io/vascyt/image-uploader:main
             docker-compose up -d
