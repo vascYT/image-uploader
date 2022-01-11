@@ -64,7 +64,7 @@ app.get("/source/:filename", (req, res) => {
   res.sendFile(path.join(__dirname + "/uploads/" + req.params.filename));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🆙 at http://localhost:${PORT}`);
 });
 
