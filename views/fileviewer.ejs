@@ -7,15 +7,13 @@
     <meta property="og:title" content="<%= fileName %>" />
     <meta
       property="og:description"
-      content="📅 <%= fileDate %> | 💾 <%= fileMb %> MB"
+      content="📅 <%= fileDate %> | 💾 <%= fileSize %>"
     />
     <meta property="og:image" content="/source/<%= fileName %>" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="robots" content="noindex" />
-    <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -25,22 +23,40 @@
       src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            spacing: {
+              "75vh": "75vh",
+            },
+            minWidth: {
+              "500px": "500px",
+            },
+          },
+        },
+      };
+    </script>
     <title><%= fileName %></title>
   </head>
   <body
-    style="background-color: #0e0e0e; font-family: 'Roboto', sans-serif"
+    style="background-color: #242424; font-family: 'Roboto', sans-serif"
     class="text-white"
   >
-    <div class="flex h-screen">
-      <div class="m-auto" style="width: 75vh">
-        <div class="bg-white rounded-lg p-10 pt-5 pb-5 bg-opacity-30">
-          <h1 class="mb-5 text-3xl font-bold"><%= fileName %></h1>
-          <img
-            src="/source/<%= fileName %>"
-            class="cursor-pointer w-full"
-            onclick="window.open(this.src)"
-          />
-          <div class="grid grid-flow-col mt-5">
+    <div class="flex justify-center h-screen">
+      <div class="mt-10 min-w-500px">
+        <div
+          class="bg-neutral-700 drop-shadow-lg rounded-lg p-10 pt-5 pb-5 text-center"
+        >
+          <h1 class="mb-3 text-3xl"><%= fileName %></h1>
+          <div class="">
+            <img
+              src="/source/<%= fileName %>"
+              class="cursor-pointer max-w-full max-h-75vh"
+              onclick="window.open(this.src)"
+            />
+          </div>
+          <div class="grid grid-flow-col mt-4">
             <div class="flex space-x-1">
               <p>
                 <span class="float-left h-6 w-6 mr-2">📅</span> <%= fileDate %>
@@ -48,7 +64,7 @@
             </div>
             <div class="flex justify-end space-x-1">
               <p>
-                <span class="float-left h-6 w-6 mr-2">💾</span> <%= fileMb %> MB
+                <span class="float-left h-6 w-6 mr-2">💾</span> <%= fileSize %>
               </p>
             </div>
           </div>

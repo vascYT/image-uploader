@@ -75,5 +75,5 @@ typings/
 # FuseBox cache
 .fusebox/
 
-# Prevent images from uploading
-public/sources/*
+# Image uploads
+uploads/
